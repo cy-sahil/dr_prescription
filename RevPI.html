@@ -1,0 +1,721 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>A note for you, Doctor | Suraksha Scheme | CoverYou</title>
+<meta name="description" content="Indemnity insurance for doctors, explained simply. Compare 1, 2 and 3-year plans.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --desk:#2b2928; --desk-deep:#1f1d1c; --paper:#ffffff; --rule:#dde5f1;
+  --coral:#f05d49; --coral-ink:#c63f2c; --ink:#1d3fa5;
+  --text:#f5f1eb; --muted:#c2bbb1; --grey:#444444; --body:#2f2c29; --sub:#5f5a54;
+  --hand:'Kalam','Segoe Print',cursive;
+  --sans:'Instrument Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;min-height:100vh;background:var(--desk);color:var(--text);font-family:var(--sans);overflow-x:hidden;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(ellipse 80% 50% at 50% 24%,rgba(255,226,190,.2),rgba(255,226,190,0) 70%)}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.08;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+header,main,footer{position:relative;z-index:1}
+button{font-family:inherit}
+:focus-visible{outline:3px solid var(--coral);outline-offset:3px}
+
+header{max-width:640px;margin:0 auto;padding:16px 20px 0;display:flex;justify-content:space-between;align-items:center}
+.logo{display:inline-flex;align-items:center}.logo img{display:block;height:34px;width:auto;max-width:170px}
+.wordmark span{color:var(--coral)}
+.licence{font-size:12px;color:var(--muted)}
+.old-steps{max-width:640px;margin:18px auto 0;padding:0 20px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;list-style:none}
+.steps li{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);padding-top:10px;border-top:3px solid #4a4643;transition:color .3s,border-color .3s}
+.steps li b{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:#4a4643;color:var(--text);font-size:12px;flex:none;transition:background .3s}
+.steps li.on{color:var(--text);border-color:var(--coral)} .steps li.on b{background:var(--coral)}
+.steps li.done{color:var(--text);border-color:#8fbf9a} .steps li.done b{background:#5d9b6c}
+
+main{max-width:640px;margin:0 auto;padding:26px 18px 48px}
+.intro{text-align:center}
+.greet{font-family:var(--hand);color:var(--coral);font-size:25px;margin:0}
+h1{margin:2px 0 0;font-size:clamp(34px,8.6vw,54px);line-height:1;letter-spacing:-.035em;font-weight:600}
+.lede{margin:14px auto 0;max-width:32ch;font-size:17px;line-height:1.45;color:var(--muted);min-height:2.9em}
+
+/* ---------- pad ---------- */
+.pad-wrap{position:relative;margin:24px auto 0;max-width:540px;perspective:1600px}
+.stack{position:absolute;left:0;right:0;top:18px;bottom:0;border-radius:0 0 6px 6px}
+.stack.s1{transform:translate(6px,7px) rotate(.8deg);background:#e9e6df}
+.stack.s2{transform:translate(-3px,3px) rotate(-.5deg);background:#f4f2ed}
+.pad{position:relative;filter:drop-shadow(0 28px 32px rgba(0,0,0,.5))}
+.pad.shake{animation:shake .38s cubic-bezier(.36,.07,.19,.97)}
+@keyframes shake{10%,90%{transform:translate(-1px,1px)}20%,80%{transform:translate(3px,-1px)}30%,50%,70%{transform:translate(-4px,2px)}40%,60%{transform:translate(4px,-2px)}}
+.binding{position:relative;z-index:10;height:26px;border-radius:8px 8px 0 0;background:linear-gradient(#f47a68,var(--coral) 55%,#d94c39);box-shadow:inset 0 -3px 0 rgba(0,0,0,.18)}
+.sheet{background:var(--paper);color:var(--body);border-radius:0 0 6px 6px;padding:18px 22px 24px;min-height:440px}
+.sheet.base{position:relative}
+.sheet.lift{position:absolute;left:0;right:0;top:20px;bottom:0;transform-origin:100% 0%;will-change:transform}
+.sheet.falling{transition:transform 1s cubic-bezier(.55,0,.85,.35),opacity 1s ease-in;opacity:0;pointer-events:none}
+.cover{z-index:9}.p1{z-index:8}.p2{z-index:7}.p3{z-index:6}
+.perf{position:relative;height:22px;margin:-18px -22px -4px}
+.perf::before{content:"";position:absolute;left:10px;right:10px;top:8px;height:4px;background:radial-gradient(circle,#bdb5a8 1.5px,transparent 1.9px) 0 0/9px 4px repeat-x}
+.rip{position:absolute;left:0;top:0;height:14px;width:0;overflow:hidden}
+.rip svg{display:block;width:560px;height:14px}
+.letterhead{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding-bottom:10px;border-bottom:3px double var(--coral)}
+.lh-name{font-weight:700;font-size:18px;letter-spacing:-.01em}
+.lh-sub{font-size:13px;color:var(--sub);margin-top:2px}
+.rx-mark{font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:52px;line-height:.9;color:var(--coral)}
+.fields{display:flex;gap:14px;flex-wrap:wrap;margin-top:10px;font-size:13px;color:var(--sub);align-items:flex-end}
+.fields div{flex:1 1 140px;border-bottom:1px solid #d9d3c8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fields b{font-family:var(--hand);font-weight:400;color:var(--ink);font-size:21px;margin-left:6px}
+.fields .pg{flex:0 0 auto;border:0;font-weight:600;color:var(--coral-ink)}
+
+.title{font-family:var(--hand);font-weight:700;font-size:clamp(23px,6vw,28px);color:var(--coral-ink);margin:14px 0 0;line-height:1.2}
+.rx{position:relative;margin-top:6px;background-image:repeating-linear-gradient(to bottom,transparent 0 41px,var(--rule) 41px 42px)}
+.ink{font-family:var(--hand);color:var(--ink);font-size:clamp(19px,5.3vw,24px);line-height:42px;height:42px;white-space:nowrap;
+  width:max-content;max-width:100%;clip-path:inset(0 100% 0 0)}
+.ink.hl{position:relative;font-weight:700;color:var(--coral-ink)}
+.circle{position:absolute;left:-12px;top:-1px;width:calc(100% + 26px);height:46px;overflow:visible;pointer-events:none}
+.circle path,.sign path{fill:none;stroke-linecap:round}
+.circle path{stroke:var(--coral);stroke-width:2.6}
+.sign path{stroke:var(--ink);stroke-width:2.2}
+.sign-row{display:flex;justify-content:space-between;align-items:flex-end;margin-top:8px;min-height:120px}
+.sign small{display:block;font-size:12px;color:var(--sub);opacity:0;transition:opacity .4s}
+.stamp{width:116px;height:116px;opacity:0;transform:scale(2.4) rotate(-26deg);mix-blend-mode:multiply}
+.stamp.in{animation:stampIn .42s cubic-bezier(.2,.9,.3,1.25) forwards}
+@keyframes stampIn{70%{opacity:.95;transform:scale(.93) rotate(-12deg)}100%{opacity:.9;transform:scale(1) rotate(-13deg)}}
+.pen{position:absolute;left:0;top:0;width:58px;height:58px;margin:-54px 0 0 -4px;pointer-events:none;opacity:0;transition:opacity .3s;z-index:12;filter:drop-shadow(3px 6px 4px rgba(0,0,0,.25))}
+
+.sealed{position:relative;min-height:330px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding-bottom:40px;text-align:center;gap:8px;overflow:hidden}
+.wm{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:Georgia,serif;font-style:italic;font-size:240px;color:#f7f0ea;pointer-events:none}
+.sealed > *{position:relative}
+.sealed > .wm,.sealed > .coffee{position:absolute}
+.conf{font-family:var(--hand);font-size:34px;color:var(--ink);line-height:1.1;margin:0;transform:rotate(-3deg)}
+.for{font-size:15px;color:var(--sub);margin:0}
+.coffee{position:absolute;right:-24px;bottom:-30px;width:150px;height:150px;opacity:.5;pointer-events:none}
+
+/* ---------- the one slider, used everywhere ---------- */
+.control{position:sticky;bottom:calc(10px + env(safe-area-inset-bottom,0px));z-index:15;max-width:540px;margin:22px auto 0;display:flex;flex-direction:column;align-items:center;gap:4px;padding:10px 10px 4px;border-radius:28px;background:rgba(31,29,28,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 12px 30px rgba(0,0,0,.45)}
+.slider{--w:0px;position:relative;width:100%;max-width:440px;height:64px;border-radius:999px;background:#454240;
+  box-shadow:inset 0 2px 6px rgba(0,0,0,.35);user-select:none;-webkit-user-select:none;overflow:hidden;transition:opacity .3s}
+.slider.light{background:#ece6dc;box-shadow:inset 0 2px 5px rgba(0,0,0,.12)}
+.s-fill{position:absolute;left:0;top:0;bottom:0;width:64px;border-radius:999px;background:linear-gradient(90deg,rgba(240,93,73,.25),rgba(240,93,73,.55))}
+.s-label{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding-left:56px;font-size:16px;font-weight:600;color:#fff;pointer-events:none;
+  background:linear-gradient(90deg,rgba(255,255,255,.55) 0%,#fff 40%,rgba(255,255,255,.55) 80%) 0 0/200% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  animation:shine 2.4s linear infinite}
+.slider.light .s-label{background-image:linear-gradient(90deg,#6b655e 0%,#2f2c29 40%,#6b655e 80%)}
+@keyframes shine{from{background-position:200% 0}to{background-position:0 0}}
+.s-thumb{position:absolute;left:4px;top:4px;width:56px;height:56px;border-radius:50%;border:0;background:linear-gradient(#f47a68,var(--coral));color:#fff;
+  display:flex;align-items:center;justify-content:center;cursor:grab;touch-action:none;box-shadow:0 4px 12px rgba(0,0,0,.3);z-index:2}
+.s-thumb:active{cursor:grabbing}
+.s-thumb.wa{background:linear-gradient(#34c46f,#22a35a)}
+.slider.light .s-fill{background:linear-gradient(90deg,rgba(37,163,90,.18),rgba(37,163,90,.4))}
+.s-hand{position:absolute;left:22px;top:24px;width:34px;height:34px;pointer-events:none;z-index:3;animation:nudge 2.2s cubic-bezier(.5,0,.3,1) infinite}
+@keyframes nudge{0%{transform:translateX(0);opacity:0}12%{opacity:1}65%{transform:translateX(150px);opacity:1}85%,100%{transform:translateX(170px);opacity:0}}
+.slider.used .s-hand{display:none}
+.slider.off{opacity:.55}
+.slider.off .s-thumb{cursor:default}
+.slider.off .s-label{animation:none}
+.c-row{display:flex;align-items:center;gap:16px;min-height:44px}
+.textbtn{min-height:44px;border:0;background:none;color:var(--muted);font-size:14px;text-decoration:underline;text-underline-offset:3px;cursor:pointer;padding:0 6px}
+.textbtn[hidden]{display:none}
+.dots{display:flex;gap:6px}
+.dots i{width:8px;height:8px;border-radius:50%;background:#5a5653;transition:background .3s,width .3s}
+.dots i.on{background:var(--coral);width:22px;border-radius:999px}
+.dots i.done{background:#8fbf9a}
+
+/* ---------- final CTA: coupon ---------- */
+.after{display:none;max-width:540px;margin:34px auto 0}
+.after.show{display:block;animation:rise .6s ease both}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.coupon{position:relative;background:#fbfaf7;color:var(--body);border-radius:22px;box-shadow:0 22px 40px rgba(0,0,0,.4)}
+.c-top{padding:24px 22px 20px;text-align:center}
+.c-for{font-family:var(--hand);font-size:21px;color:var(--ink);margin:0}
+.c-big{margin:4px 0 0;font-size:clamp(46px,13vw,68px);line-height:.9;font-weight:700;letter-spacing:-.05em;color:var(--coral)}
+.c-big small{font-size:.38em;letter-spacing:-.02em;color:var(--body)}
+.c-what{margin:10px auto 0;font-size:17px;line-height:1.4;color:var(--body);max-width:28ch}
+.c-cut{position:relative;height:0;border-top:2px dashed #d3cbbf;margin:0 22px}
+.c-cut::before,.c-cut::after{content:"";position:absolute;top:-15px;width:28px;height:28px;border-radius:50%;background:var(--desk)}
+.c-cut::before{left:-37px}.c-cut::after{right:-37px}
+.c-bottom{padding:20px 22px 22px;display:flex;flex-direction:column;gap:16px;align-items:center}
+.pick-lbl{font-size:14px;font-weight:600;color:var(--sub);margin:0}
+.plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;width:100%;max-width:440px}
+.plans button{min-height:84px;border-radius:14px;border:2px solid #ddd5c9;background:#fff;color:var(--body);cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:8px 4px;transition:border-color .2s,background .2s,transform .15s}
+.plans button b{font-size:18px}
+.plans button span{font-size:12.5px;color:var(--sub)}
+.plans button .tag{background:#fde4df;color:var(--coral-ink);font-weight:700;padding:2px 8px;border-radius:999px}
+.plans button[aria-checked="true"]{border-color:var(--coral);background:#fff6f4;transform:translateY(-2px);box-shadow:0 6px 14px rgba(240,93,73,.18)}
+.slider.light .s-fill{background:linear-gradient(90deg,rgba(240,93,73,.15),rgba(240,93,73,.38))!important}
+.terms{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;padding:5px;background:#eee9e1;border-radius:999px;width:100%;max-width:440px}
+.terms button{min-height:46px;border-radius:999px;border:0;background:transparent;color:var(--grey);font-size:16px;font-weight:600;cursor:pointer;transition:background .25s,box-shadow .25s}
+.terms button[aria-pressed="true"]{background:#fff;color:var(--body);box-shadow:0 2px 8px rgba(0,0,0,.12)}
+.trust{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;width:100%;max-width:440px;margin:2px 0 0;padding:0;list-style:none}
+.trust li{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;font-size:12.5px;line-height:1.3;color:var(--sub)}
+.trust svg{color:var(--coral-ink)}
+.valid{font-size:13px;color:var(--sub);margin:0}
+.foot-note{margin:20px 0 0;font-size:12px;line-height:1.55;color:var(--muted)}
+
+footer{background:var(--desk-deep);border-top:1px solid #3a3735}
+footer p{max-width:640px;margin:0 auto;padding:22px 20px 28px;font-size:12px;line-height:1.6;color:#b3ab9f}
+
+@media (min-width:700px){.sheet{padding:22px 32px 28px}.perf{margin:-22px -32px -4px}}
+@media (prefers-reduced-motion:reduce){
+  .pad.shake,.stamp.in,.after.show,.s-label,.s-hand{animation:none}
+  .s-label{-webkit-text-fill-color:#fff;background:none}
+  .slider.light .s-label{-webkit-text-fill-color:#2f2c29}
+  .s-hand{display:none}
+  .sheet.falling{transition:opacity .3s}
+}
+
+/* how-it-works strip (also the progress tracker) */
+.how{list-style:none;margin:22px auto 0;padding:0;max-width:520px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;counter-reset:h}
+.how li{position:relative;display:flex;flex-direction:column;align-items:center;gap:4px;padding:12px 6px 10px;border-radius:16px;background:#353230;border:1.5px solid #4a4643;transition:border-color .3s,background .3s,opacity .3s;opacity:.6}
+.how li .ic{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#4a4643;color:#fff;transition:background .3s}
+.how li b{font-size:15px}
+.how li small{font-size:12px;color:var(--muted);line-height:1.25}
+.how li.on{opacity:1;border-color:var(--coral);background:#3d3532}
+.how li.on .ic{background:var(--coral);animation:ring 1.8s ease-out infinite}
+.how li.done{opacity:1;border-color:#5d9b6c}
+.how li.done .ic{background:#5d9b6c}
+/* instruction written on the cover */
+.cover-hint{font-family:var(--hand);font-size:22px;line-height:1.15;color:var(--coral-ink);margin:14px 0 0;transform:rotate(-2deg)}
+.cover-arrow{animation:bob 1.4s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+/* coach bubble over the slider */
+.coach{position:absolute;left:50%;bottom:calc(100% + 12px);transform:translateX(-50%);width:max-content;max-width:calc(100vw - 40px);display:flex;align-items:center;gap:8px;
+  background:#fff;color:var(--body);font-size:14px;font-weight:600;padding:10px 14px;border-radius:14px;box-shadow:0 10px 24px rgba(0,0,0,.35);animation:coach 1.6s ease-in-out infinite;transition:opacity .3s}
+.coach svg{color:var(--coral);flex:none}
+.coach::after{content:"";position:absolute;left:50%;top:100%;margin-left:-8px;border:8px solid transparent;border-top-color:#fff}
+.coach.hide{opacity:0;pointer-events:none}
+@keyframes coach{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,-5px)}}
+/* thumb invites a drag when ready */
+.slider:not(.off) .s-thumb{animation:ring 1.8s ease-out infinite}
+@keyframes ring{0%{box-shadow:0 4px 12px rgba(0,0,0,.3),0 0 0 0 rgba(240,93,73,.6)}70%,100%{box-shadow:0 4px 12px rgba(0,0,0,.3),0 0 0 14px rgba(240,93,73,0)}}
+.slider.light:not(.off) .s-thumb{animation:none}
+@media (prefers-reduced-motion:reduce){.how li.on .ic,.cover-arrow,.coach,.slider .s-thumb{animation:none}}
+
+/* clipboard that holds the prescription pad */
+.clipboard{position:relative;max-width:584px;margin:26px auto 0;padding:60px 16px 22px;border-radius:22px;
+  background:linear-gradient(160deg,#b0805a 0%,#94653f 45%,#7d5434 100%);
+  box-shadow:0 34px 60px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.22),inset 0 -3px 0 rgba(0,0,0,.25)}
+.clipboard::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:.35;
+  background:repeating-linear-gradient(100deg,rgba(255,255,255,.05) 0 2px,rgba(0,0,0,.05) 2px 5px),radial-gradient(ellipse at 30% 20%,rgba(255,240,220,.25),transparent 60%)}
+.clipboard::after{content:"";position:absolute;left:12px;right:12px;bottom:6px;height:8px;border-radius:0 0 16px 16px;background:rgba(0,0,0,.18);filter:blur(2px);pointer-events:none}
+.clipboard .pad-wrap{margin:0 auto;max-width:none}
+.clip{position:absolute;left:50%;top:-16px;width:190px;height:92px;transform:translateX(-50%);z-index:30;filter:drop-shadow(0 6px 6px rgba(0,0,0,.35));pointer-events:none}
+.clipboard .binding{height:20px}
+@media (max-width:480px){
+  main{padding-left:12px;padding-right:12px}
+  .clipboard{padding:56px 10px 16px;border-radius:18px}
+  .clip{width:160px;height:78px;top:-12px}
+  .sheet{padding-left:16px;padding-right:16px}
+  .perf{margin-left:-16px;margin-right:-16px}
+}
+
+/* ---------- Association Suraksha Scheme ---------- */
+.suraksha{margin-top:48px}
+.sk-kicker{text-align:center;font-family:var(--hand);font-size:26px;color:var(--coral);margin:0 0 14px}
+.cert{position:relative;background:#fffdf9;color:var(--body);border-radius:24px;padding:74px 24px 26px;text-align:center;overflow:hidden;
+  box-shadow:0 30px 60px rgba(0,0,0,.5),0 0 0 1px rgba(240,93,73,.25);
+  background-image:repeating-radial-gradient(circle at 50% 0,rgba(240,93,73,.045) 0 2px,transparent 2px 14px),linear-gradient(#fffdf9,#fff8f2)}
+.cert::before{content:"";position:absolute;inset:10px;border:2px solid rgba(240,93,73,.35);border-radius:18px;pointer-events:none;
+  box-shadow:inset 0 0 0 5px #fffdf9,inset 0 0 0 6px rgba(240,93,73,.2)}
+.cert-band{position:absolute;left:0;right:0;top:0;height:10px;background:linear-gradient(90deg,#d8432f,var(--coral),#f47a68,var(--coral),#d8432f)}
+.seal{position:absolute;left:50%;top:22px;width:96px;height:96px;margin-left:-48px;filter:drop-shadow(0 8px 14px rgba(240,93,73,.35))}
+.cert-scheme{margin:48px 0 0;font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--coral-ink)}
+.cert-lead{margin:10px auto 0;max-width:30ch;font-size:16px;line-height:1.45;color:var(--sub)}
+.cert-amt{margin:6px 0 0;font-size:clamp(56px,16vw,84px);font-weight:700;letter-spacing:-.04em;line-height:1;
+  background:linear-gradient(180deg,#f47a68,#d8432f);-webkit-background-clip:text;background-clip:text;color:transparent}
+.cert-what{margin:6px 0 0;font-size:clamp(19px,5vw,23px);font-weight:700;color:var(--body)}
+.cert-under{margin:6px 0 0;font-size:15px;color:var(--sub)}
+.cert-under b{color:var(--body)}
+.cert-cut{position:relative;height:0;border-top:2px dashed #e3d7c9;margin:24px -24px 0}
+.cert-cut::before,.cert-cut::after{content:"";position:absolute;top:-15px;width:28px;height:28px;border-radius:50%;background:var(--desk)}
+.cert-cut::before{left:-14px}.cert-cut::after{right:-14px}
+.reg{margin-top:22px;text-align:center}
+.reg h3{margin:0 0 16px;text-align:center;font-size:clamp(19px,5vw,22px);line-height:1.25;color:var(--body)}
+.f-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media (max-width:520px){.f-grid{grid-template-columns:1fr}}
+.f label{display:block;font-size:13px;font-weight:600;color:var(--grey);margin-bottom:6px}
+.f input,.ph{width:100%;min-height:50px;border:1.5px solid #d9cfc2;border-radius:12px;background:#fff;font:500 16px var(--sans);color:var(--body);padding:0 14px}
+.f input:focus,.ph:focus-within{outline:3px solid rgba(240,93,73,.45);outline-offset:1px;border-color:var(--coral)}
+.ph{display:flex;align-items:center;padding:0}
+.ph span{padding:0 10px 0 14px;color:var(--sub);font-weight:600;border-right:1px solid #e6ddd1;align-self:stretch;display:flex;align-items:center}
+.ph input{border:0;min-height:46px;outline:none !important}
+.f.bad input,.f.bad .ph{border-color:#c63f2c}
+.err{display:block;min-height:16px;font-size:12.5px;color:#b3321f;margin-top:4px}
+.consent{display:flex;gap:10px;align-items:flex-start;margin-top:6px;font-size:13px;line-height:1.45;color:var(--sub);cursor:pointer}
+.consent input{flex:none;width:22px;height:22px;margin-top:1px;accent-color:var(--coral)}
+.consent a{color:var(--coral-ink)}
+.reg-slider{margin:6px auto 4px}
+.reg-done{padding:20px 6px 8px}
+.reg-done h3{margin:10px 0 6px;font-size:22px;color:var(--body)}
+.reg-done p{margin:0 auto;max-width:34ch;font-size:15px;line-height:1.5;color:var(--sub)}
+
+.or{display:flex;align-items:center;gap:12px;margin:14px auto 10px;max-width:440px;color:var(--sub);font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.12em}
+.or::before,.or::after{content:"";flex:1;height:1px;background:#e3d7c9}
+.or-note{margin:8px 0 0;font-size:13px;color:var(--sub)}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="https://www.coveryou.in" class="logo" aria-label="CoverYou home"><img src="https://www.coveryou.in/images/svg/footer-logo.svg" alt="CoverYou" height="34"></a>
+  <div class="licence">IRDAI Licence No. 825</div>
+</header>
+
+
+<main>
+  <section class="intro">
+    <p class="greet"><span data-who>Dear Doctor</span>,</p>
+    <h1>We wrote you a prescription.</h1>
+    <p class="lede" id="lede">A 1-minute read on protecting your practice, written as a 4-page prescription.</p>
+  </section>
+
+  <div class="clipboard" id="clipboard">
+  <svg class="clip" viewBox="0 0 200 96" aria-hidden="true">
+    <defs>
+      <linearGradient id="metal" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4f4f2"/><stop offset=".45" stop-color="#b9bcbf"/><stop offset=".55" stop-color="#9ea2a6"/><stop offset="1" stop-color="#d9dbdd"/></linearGradient>
+      <linearGradient id="metal2" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8d9196"/><stop offset=".5" stop-color="#eef0f1"/><stop offset="1" stop-color="#8d9196"/></linearGradient>
+    </defs>
+    <path d="M58 30 C58 6, 142 6, 142 30" fill="none" stroke="url(#metal2)" stroke-width="9" stroke-linecap="round"/>
+    <rect x="18" y="26" width="164" height="40" rx="10" fill="url(#metal)" stroke="#7d8186" stroke-width="1.2"/>
+    <path d="M24 64 L176 64 L170 90 Q100 98 30 90 Z" fill="url(#metal)" stroke="#7d8186" stroke-width="1.2"/>
+    <circle cx="40" cy="46" r="5" fill="#8d9196" stroke="#f4f4f2" stroke-width="1.4"/>
+    <circle cx="160" cy="46" r="5" fill="#8d9196" stroke="#f4f4f2" stroke-width="1.4"/>
+    <rect x="70" y="40" width="60" height="10" rx="5" fill="#a8acb0" opacity=".7"/>
+  </svg>
+  <div class="pad-wrap">
+    <div class="stack s1" aria-hidden="true"></div>
+    <div class="stack s2" aria-hidden="true"></div>
+    <div class="pad" id="pad">
+      <div class="binding" aria-hidden="true"></div>
+
+      <!-- page 3 (bottom of the pad) -->
+      <div class="sheet base" data-sheet="4" aria-label="Page 4 of 4">
+        <div class="letterhead"><div><div class="lh-name">CoverYou Advisory Desk</div><div class="lh-sub">Indemnity insurance for doctors</div></div><div class="rx-mark" aria-hidden="true">℞</div></div>
+        <div class="fields"><div>To <b><span data-who>Dear Doctor</span></b></div><div>Date <b data-date></b></div><div class="pg">Page 4 of 4</div></div>
+        <p class="title">Choose how long you stay covered</p>
+        <div class="rx">
+          <div class="ink">Pick 1, 2 or 3 years of cover</div>
+          <div class="ink">Longer plans, fewer renewals</div>
+          <div class="ink hl" data-circle>Compare the prices yourself
+            <svg class="circle" viewBox="0 0 300 46" preserveAspectRatio="none" aria-hidden="true"><path id="circlePath" d="M18 30 C10 10,120 2,220 5 S300 18,290 30 S200 46,110 43 S6 40,26 12"/></svg>
+          </div>
+          <div class="sign-row">
+            <div class="sign">
+              <svg width="160" height="44" viewBox="0 0 160 44" aria-hidden="true"><path id="signPath" d="M4 32 C18 4,32 42,46 20 S72 8,80 28 S104 36,118 14 S142 22,156 26"/></svg>
+              <small>CoverYou Advisory Desk</small>
+            </div>
+            <svg class="stamp" id="stamp" viewBox="0 0 120 120" role="img" aria-label="CoverYou stamp: 1, 2 and 3-year plans">
+              <defs>
+                <filter id="rough"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="2.6"/></filter>
+                <path id="ring" d="M60 60 m-44 0 a44 44 0 1 1 88 0 a44 44 0 1 1 -88 0"/>
+              </defs>
+              <g filter="url(#rough)" fill="none" stroke="#e0503c"><circle cx="60" cy="60" r="56" stroke-width="3.5"/><circle cx="60" cy="60" r="34" stroke-width="1.6"/></g>
+              <g filter="url(#rough)" fill="#e0503c" font-family="Instrument Sans, sans-serif" font-weight="700">
+                <text font-size="10.5" letter-spacing="1.6"><textPath href="#ring">COVERYOU • INDEMNITY PLANS • DOCTORS •</textPath></text>
+                <text x="60" y="64" text-anchor="middle" font-size="19">1 2 3</text><text x="60" y="78" text-anchor="middle" font-size="9" letter-spacing="1.5">YEARS</text>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- page 2 -->
+      <div class="sheet lift p3" data-sheet="3" aria-label="Page 3 of 4">
+        <div class="perf" aria-hidden="true"><div class="rip"><svg viewBox="0 0 560 14" preserveAspectRatio="none"><path class="ripPath" fill="#2b2928" d=""/></svg></div></div>
+        <div class="letterhead"><div><div class="lh-name">CoverYou Advisory Desk</div><div class="lh-sub">Indemnity insurance for doctors</div></div><div class="rx-mark" aria-hidden="true">℞</div></div>
+        <div class="fields"><div>To <b><span data-who>Dear Doctor</span></b></div><div>Date <b data-date></b></div><div class="pg">Page 3 of 4</div></div>
+        <p class="title">Why doctors choose CoverYou</p>
+        <div class="rx">
+          <div class="ink">Trusted by 120+ associations</div>
+          <div class="ink">2 lakh+ doctors assisted</div>
+          <div class="ink">10,000+ lawyers on our panel</div>
+          <div class="ink">500+ senior doctors panel</div>
+          <div class="ink">We guide you through claims</div>
+        </div>
+      </div>
+
+      <!-- page 1 -->
+      <div class="sheet lift p2" data-sheet="2" aria-label="Page 2 of 4">
+        <div class="perf" aria-hidden="true"><div class="rip"><svg viewBox="0 0 560 14" preserveAspectRatio="none"><path class="ripPath" fill="#2b2928" d=""/></svg></div></div>
+        <div class="letterhead"><div><div class="lh-name">CoverYou Advisory Desk</div><div class="lh-sub">Indemnity insurance for doctors</div></div><div class="rx-mark" aria-hidden="true">℞</div></div>
+        <div class="fields"><div>To <b><span data-who>Dear Doctor</span></b></div><div>Date <b data-date></b></div><div class="pg">Page 2 of 4</div></div>
+        <p class="title">What is indemnity insurance?</p>
+        <div class="rx">
+          <div class="ink">It is insurance for doctors</div>
+          <div class="ink">If a patient files a case,</div>
+          <div class="ink">it can cover your legal costs</div>
+          <div class="ink">and compensation, if awarded*</div>
+        </div>
+      </div>
+
+      <div class="sheet lift p1" data-sheet="1" aria-label="Page 1 of 4">
+        <div class="perf" aria-hidden="true"><div class="rip"><svg viewBox="0 0 560 14" preserveAspectRatio="none"><path class="ripPath" fill="#2b2928" d=""/></svg></div></div>
+        <div class="letterhead"><div><div class="lh-name">CoverYou Advisory Desk</div><div class="lh-sub">Indemnity insurance for doctors</div></div><div class="rx-mark" aria-hidden="true">℞</div></div>
+        <div class="fields"><div>To <b><span data-who>Dear Doctor</span></b></div><div>Date <b data-date></b></div><div class="pg">Page 1 of 4</div></div>
+        <p class="title">It can happen to any doctor</p>
+        <div class="rx">
+          <div class="ink">A result isn't what they hoped</div>
+          <div class="ink">The family blames the doctor</div>
+          <div class="ink">A complaint or case is filed</div>
+          <div class="ink">Even when the care was right</div>
+        </div>
+      </div>
+
+      <!-- cover -->
+      <div class="sheet lift cover" data-sheet="0">
+        <div class="perf" aria-hidden="true"><div class="rip"><svg viewBox="0 0 560 14" preserveAspectRatio="none"><path class="ripPath" fill="#2b2928" d=""/></svg></div></div>
+        <div class="letterhead"><div><div class="lh-name">CoverYou Advisory Desk</div><div class="lh-sub">Indemnity insurance for doctors</div></div><div class="rx-mark" aria-hidden="true">℞</div></div>
+        <div class="sealed">
+          <div class="wm" aria-hidden="true">℞</div>
+          <svg class="coffee" viewBox="0 0 150 150" aria-hidden="true"><circle cx="75" cy="75" r="52" fill="none" stroke="#b98a5a" stroke-width="5" stroke-opacity=".28"/><path d="M30 60 A52 52 0 0 1 110 32" fill="none" stroke="#9a6a3c" stroke-width="2" stroke-opacity=".25"/></svg>
+          <p class="conf">Just for you</p>
+          <p class="for"><span data-who>Dear Doctor</span>, 4 short pages for you</p>
+          <p class="cover-hint">Slide the scissors below<br>to tear me open</p>
+          <svg class="cover-arrow" width="40" height="54" viewBox="0 0 40 54" aria-hidden="true"><path d="M20 2 C8 14, 30 26, 18 46 M9 38 L18 48 L28 40" fill="none" stroke="#f05d49" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+
+      <svg class="pen" id="pen" viewBox="0 0 64 64" aria-hidden="true">
+        <path d="M6 58 L14 44 L48 10 C52 6 58 12 54 16 L20 50 Z" fill="#1c1b1a"/>
+        <path d="M14 44 L20 50 L6 58 Z" fill="#c9a24a"/>
+        <path d="M40 18 L46 24" stroke="#c9a24a" stroke-width="3"/>
+      </svg>
+    </div>
+  </div>
+
+  </div><!-- /clipboard -->
+
+  <!-- the slider that tears each page -->
+  <div class="control" id="control">
+    <div class="coach" id="coach" role="note"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4 8.1 15.9M14.5 14.5 20 20M8.1 8.1 12 12"/></svg>Slide the scissors right to tear the page</div>
+    <div class="slider" id="tearSlider">
+      <div class="s-fill"></div>
+      <span class="s-label">Slide to open</span>
+      <button class="s-thumb" type="button" aria-label="Slide to open, or press to open">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4 8.1 15.9M14.5 14.5 20 20M8.1 8.1 12 12"/></svg>
+      </button>
+      <svg class="s-hand" viewBox="0 0 24 24" fill="#fff" stroke="#444" stroke-width="1.2" stroke-linejoin="round" aria-hidden="true"><path d="M9 11V5.5a1.5 1.5 0 0 1 3 0V10l.1-1a1.5 1.5 0 0 1 3 .2V11a1.5 1.5 0 0 1 3 0v1a1.5 1.5 0 0 1 2.9.5V16c0 3.3-2.7 6-6 6h-1.5a6 6 0 0 1-4.9-2.6L4.3 15a1.6 1.6 0 0 1 2.5-2L9 15z"/></svg>
+    </div>
+    <div class="c-row">
+      <div class="dots" id="dots" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+      <button class="textbtn" id="skip" type="button" hidden>Show full page</button>
+    </div>
+  </div>
+
+  <!-- final CTA -->
+  <section class="after" id="after" aria-label="Compare plans and Suraksha Scheme">
+    <div class="coupon">
+      <div class="c-top">
+        <p class="c-for"><span data-who>Dear Doctor</span>, this is for you</p>
+        <p class="c-big">1, 2 or 3<small> years</small></p>
+        <p class="c-what">See indemnity insurance plans side by side and pick the term that suits your practice.*</p>
+      </div>
+      <div class="c-cut" aria-hidden="true"></div>
+      <div class="c-bottom">
+        <p class="pick-lbl" id="pickLbl">Choose a plan to compare</p>
+        <div class="plans" role="radiogroup" aria-labelledby="pickLbl">
+          <button type="button" role="radio" aria-checked="false" data-years="1" tabindex="-1"><b>1 year</b><span>Yearly plan</span></button>
+          <button type="button" role="radio" aria-checked="false" data-years="2" tabindex="-1"><b>2 years</b><span>Fewer renewals</span></button>
+          <button type="button" role="radio" aria-checked="true" data-years="3" tabindex="0"><b>3 years</b><span>Longest term</span></button>
+        </div>
+        <div class="slider light" id="cmpSlider">
+          <div class="s-fill"></div>
+          <span class="s-label">Slide to compare plans</span>
+          <button class="s-thumb" type="button" aria-label="Slide or press to compare plans">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="7" height="16" rx="1.5"/><rect x="14" y="4" width="7" height="16" rx="1.5"/></svg>
+          </button>
+          <svg class="s-hand" viewBox="0 0 24 24" fill="#fff" stroke="#444" stroke-width="1.2" stroke-linejoin="round" aria-hidden="true"><path d="M9 11V5.5a1.5 1.5 0 0 1 3 0V10l.1-1a1.5 1.5 0 0 1 3 .2V11a1.5 1.5 0 0 1 3 0v1a1.5 1.5 0 0 1 2.9.5V16c0 3.3-2.7 6-6 6h-1.5a6 6 0 0 1-4.9-2.6L4.3 15a1.6 1.6 0 0 1 2.5-2L9 15z"/></svg>
+        </div>
+        <ul class="trust">
+          <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="7" height="16" rx="1.5"/><rect x="14" y="4" width="7" height="16" rx="1.5"/></svg>1, 2 and 3-year plans side by side</li>
+          <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg>Read policy details before you buy</li>
+          <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg>IRDAI Licence No. 825</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Association Suraksha Scheme -->
+    <div class="suraksha" id="suraksha">
+      <p class="sk-kicker">One more thing, <span data-who>Dear Doctor</span></p>
+      <div class="cert">
+        <div class="cert-band" aria-hidden="true"></div>
+        <svg class="seal" viewBox="0 0 120 120" aria-hidden="true">
+          <defs><path id="sealRing" d="M60 60 m-43 0 a43 43 0 1 1 86 0 a43 43 0 1 1 -86 0"/>
+          <linearGradient id="sealG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f47a68"/><stop offset="1" stop-color="#d8432f"/></linearGradient></defs>
+          <path d="M60 2 L69 10 L81 7 L86 18 L98 21 L97 33 L107 41 L101 52 L106 63 L97 70 L98 83 L86 86 L81 97 L69 94 L60 103 L51 94 L39 97 L34 86 L22 83 L23 70 L14 63 L19 52 L13 41 L23 33 L22 21 L34 18 L39 7 L51 10 Z" fill="url(#sealG)" transform="translate(0 7)"/>
+          <circle cx="60" cy="60" r="35" fill="none" stroke="#fff" stroke-width="1.5" stroke-dasharray="2 3" opacity=".8"/>
+          <text font-family="Instrument Sans, sans-serif" font-weight="700" font-size="8.5" letter-spacing="1.4" fill="#fff"><textPath href="#sealRing">SURAKSHA SCHEME • FOR MEMBERS •</textPath></text>
+          <path d="M60 44 l14 5 v10 c0 9-6 15-14 17-8-2-14-8-14-17 v-10 z" fill="#fff"/>
+          <path d="m54 60 4 4 8-8" fill="none" stroke="#e0503c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <p class="cert-scheme" data-scheme>Association Suraksha Scheme</p>
+        <p class="cert-lead"><span data-who>Dear Doctor</span>, <span data-member>as an association member</span>, you are eligible for</p>
+        <p class="cert-amt">₹10 Lakh</p>
+        <p class="cert-what">Group Professional Indemnity Insurance*</p>
+        <p class="cert-under">under the <b data-scheme>Association Suraksha Scheme</b></p>
+
+        <div class="cert-cut" aria-hidden="true"></div>
+
+        <div class="reg">
+          <h3>Register below</h3>
+          <div class="slider light reg-slider" id="regSlider">
+            <div class="s-fill"></div>
+            <span class="s-label">Slide to register</span>
+            <button class="s-thumb" type="button" aria-label="Slide or press to register">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg>
+            </button>
+            <svg class="s-hand" viewBox="0 0 24 24" fill="#fff" stroke="#444" stroke-width="1.2" stroke-linejoin="round" aria-hidden="true"><path d="M9 11V5.5a1.5 1.5 0 0 1 3 0V10l.1-1a1.5 1.5 0 0 1 3 .2V11a1.5 1.5 0 0 1 3 0v1a1.5 1.5 0 0 1 2.9.5V16c0 3.3-2.7 6-6 6h-1.5a6 6 0 0 1-4.9-2.6L4.3 15a1.6 1.6 0 0 1 2.5-2L9 15z"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="foot-note">*Indemnity insurance cover, including legal costs, is subject to the policy terms, conditions, exclusions and sum insured. Plans are underwritten by ICICI Lombard General Insurance Company Limited. Premium for each policy term is as per the insurer's approved product terms; please compare plan details before you buy. CoverYou is an insurance broker and does not settle claims; all claims are assessed and settled by the insurer as per policy terms. CoverYou assists with the claim process and gives access to its legal and senior doctor panels, which are services by CoverYou and not part of the insurance cover. Figures shown are as per CoverYou records. Premium depends on speciality, sum insured, underwriting and eligibility. The ₹10 lakh group professional indemnity insurance is a group policy issued by the insurer to the association as master policyholder; eligibility is subject to verification of active association membership and medical registration, and cover is subject to the group policy's terms, conditions and exclusions. Registration does not by itself confirm cover. <a href="https://pi.coveryou.in/terms-conditions" target="_blank" rel="noopener" style="color:#f3c9c1">Terms &amp; Conditions</a> Apply.</p>
+    <p class="foot-note">By continuing, you agree that CoverYou may contact you about insurance on WhatsApp, phone or email. See our <a href="https://pi.coveryou.in/privacy-policy" target="_blank" rel="noopener" style="color:#f3c9c1">Privacy Policy</a> and <a href="https://pi.coveryou.in/terms-conditions" target="_blank" rel="noopener" style="color:#f3c9c1">Terms &amp; Conditions</a>.</p>
+  </section>
+</main>
+
+<footer>
+  <p>CoverYou (Alexa Insurance Broker Pvt. Ltd.) | Corporate Office: Plot No. 15 &amp; 16 - C, Udyog Vihar, Phase V, Gurgaon, Haryana, 122022 | IRDAI License No. 825 | UIN: CY/MK/WM/0001 | <a href="https://pi.coveryou.in/terms-conditions" target="_blank" rel="noopener" style="color:#d9cfc3">Terms &amp; Conditions</a> Apply | Insurance is a subject matter of solicitation. For more details on policy terms, conditions, exclusions, limitations, please refer/ read policy brochure before concluding sale.<br><a href="https://pi.coveryou.in/privacy-policy" target="_blank" rel="noopener" style="color:#d9cfc3">Privacy Policy</a> &nbsp;|&nbsp; <a href="https://pi.coveryou.in/terms-conditions" target="_blank" rel="noopener" style="color:#d9cfc3">Terms &amp; Conditions</a></p>
+</footer>
+
+<script>
+(function(){
+  /* ===== settings ===== */
+
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var $ = function(s,r){return (r||document).querySelector(s)};
+  var $$ = function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+  function wait(ms){return new Promise(function(r){setTimeout(r,ms)})}
+
+  /* personalise with ?dr=Sharma */
+  var name = 'Doctor';
+  try{ var n = (new URLSearchParams(location.search).get('dr')||'').replace(/^dr\.?\s*/i,'').trim().slice(0,40); if(n) name = n; }catch(e){}
+  var who = name === 'Doctor' ? 'Dear Doctor' : 'Dear Dr ' + name;
+  $$('[data-who]').forEach(function(el){ el.textContent = who; });
+  var today = ''; try{ today = new Date().toLocaleDateString('en-IN',{day:'2-digit',month:'short',year:'numeric'}); }catch(e){}
+  $$('[data-date]').forEach(function(el){ el.textContent = today; });
+
+  var stepEls = $$('#steps li');
+  function step(i){ stepEls.forEach(function(li,k){ li.className = k < i ? 'done' : (k === i ? 'on' : ''); }); }
+  var dotEls = $$('#dots i');
+  function dots(read, current){ dotEls.forEach(function(d,k){ d.className = k < read ? 'done' : (k === current ? 'on' : ''); }); }
+
+  /* ===== sound + haptics ===== */
+  var actx;
+  function ac(){ if(!actx){ try{ actx = new (window.AudioContext||window.webkitAudioContext)(); }catch(e){} } if(actx && actx.state === 'suspended') actx.resume(); return actx; }
+  function rip(){
+    var c = ac(); if(!c) return;
+    var len = c.sampleRate*.45, buf = c.createBuffer(1,len,c.sampleRate), d = buf.getChannelData(0);
+    for(var i=0;i<len;i++){ d[i] = (Math.random()*2-1)*(Math.random()<.06?1:.35)*(1-i/len); }
+    var s = c.createBufferSource(); s.buffer = buf;
+    var f = c.createBiquadFilter(); f.type = 'bandpass'; f.Q.value = .8;
+    f.frequency.setValueAtTime(1400,c.currentTime); f.frequency.linearRampToValueAtTime(3600,c.currentTime+.4);
+    var g = c.createGain(); g.gain.value = .5; s.connect(f); f.connect(g); g.connect(c.destination); s.start();
+  }
+  function thud(){
+    var c = ac(); if(!c) return;
+    var o = c.createOscillator(), g = c.createGain(), t = c.currentTime;
+    o.frequency.setValueAtTime(150,t); o.frequency.exponentialRampToValueAtTime(45,t+.18);
+    g.gain.setValueAtTime(.7,t); g.gain.exponentialRampToValueAtTime(.001,t+.22);
+    o.connect(g); g.connect(c.destination); o.start(t); o.stop(t+.25);
+  }
+  function buzz(p){ try{ navigator.vibrate && navigator.vibrate(p); }catch(e){} }
+
+  /* ===== reusable slide control ===== */
+  function Slider(root, opts){
+    var thumb = $('.s-thumb', root), fill = $('.s-fill', root), label = $('.s-label', root);
+    var p = 0, sx = 0, sp = 0, dragging = false, moved = false, locked = false, enabled = true;
+    function max(){ return root.clientWidth - thumb.offsetWidth - 8; }
+    function paint(v, animate){
+      p = Math.max(0, Math.min(1, v));
+      var x = p*max();
+      thumb.style.transition = fill.style.transition = animate ? 'transform .3s ease, width .3s ease' : 'none';
+      thumb.style.transform = 'translateX('+x+'px)';
+      fill.style.width = (x + thumb.offsetWidth + 4) + 'px';
+      label.style.opacity = String(1 - p*1.4);
+      if(opts.onProgress) opts.onProgress(p);
+    }
+    var anim = 0;
+    function tween(to, ms, cb){
+      var from = p, t0 = performance.now(), my = ++anim;
+      (function f(t){ if(my !== anim) return; var k = Math.min(1,(t-t0)/ms); paint(from+(to-from)*(1-Math.pow(1-k,3))); if(k<1) requestAnimationFrame(f); else if(cb) cb(); })(t0);
+    }
+    function complete(){ if(locked) return; locked = true; paint(1); if(opts.onComplete) opts.onComplete(); }
+    function auto(){ if(!enabled || locked) return; root.classList.add('used'); ac(); tween(1, reduce?1:420, complete); }
+    thumb.addEventListener('pointerdown', function(e){
+      if(!enabled || locked) return;
+      ac(); anim++; dragging = true; moved = false; sx = e.clientX; sp = p;
+      try{ thumb.setPointerCapture(e.pointerId); }catch(err){}
+    });
+    thumb.addEventListener('pointermove', function(e){
+      if(!dragging) return;
+      var dx = e.clientX - sx;
+      if(Math.abs(dx) > 5){ moved = true; root.classList.add('used'); }
+      if(moved){ paint(sp + dx/max()); if(p >= .98){ dragging = false; complete(); } }
+    });
+    function up(){
+      if(!dragging) return; dragging = false;
+      if(!moved || locked) return;
+      if(p > .7) tween(1, 150, complete); else tween(0, 260);
+    }
+    thumb.addEventListener('pointerup', up);
+    thumb.addEventListener('pointercancel', up);
+    thumb.addEventListener('click', function(){ if(moved){ moved = false; return; } auto(); });
+    return {
+      set: function(text, aria){ label.textContent = text; if(aria) thumb.setAttribute('aria-label', aria); },
+      enable: function(){ enabled = true; locked = false; root.classList.remove('off'); thumb.disabled = false; },
+      disable: function(){ enabled = false; root.classList.add('off'); thumb.disabled = true; },
+      used: function(){ return root.classList.contains('used'); },
+      demo: function(){
+        if(!enabled || locked || dragging || reduce || root.classList.contains('used')) return;
+        tween(.24, 600, function(){ setTimeout(function(){ if(!dragging && !locked && !root.classList.contains('used')) tween(0, 500); }, 450); });
+      },
+      reset: function(){ var cb = opts.onProgress; opts.onProgress = null; paint(0, !reduce); opts.onProgress = cb; label.style.opacity = '1'; }
+    };
+  }
+
+  /* ===== tearing pages ===== */
+  $$('.ripPath').forEach(function(path){
+    var d = 'M0 0', x = 0; while(x < 560){ x += 6+Math.random()*6; d += ' L'+x.toFixed(1)+' '+(3+Math.random()*9).toFixed(1); }
+    path.setAttribute('d', d+' L560 0 Z');
+  });
+  var pad = $('#pad'), pen = $('#pen'), skipBtn = $('#skip'), lede = $('#lede');
+  var sheets = [0,1,2,3,4].map(function(i){ return $('[data-sheet="'+i+'"]'); });
+  var idx = 0;  // sheet currently on top
+
+  function tilt(p){
+    var s = sheets[idx]; if(!s || idx === 4) return;
+    s.style.transform = 'rotate('+(p*7)+'deg) translateY('+(p*8)+'px)';
+    var r = $('.rip', s); if(r) r.style.width = (p*100)+'%';
+  }
+  var coach = $('#coach');
+  var tear = Slider($('#tearSlider'), { onProgress: tilt, onComplete: tearOff });
+  // show, don't tell: the cover peeks open in sync with the slider until the doctor tries it
+  var demoTimer = setTimeout(function loop(){
+    if(idx !== 0 || tear.used()) return;
+    tear.demo();
+    demoTimer = setTimeout(loop, 5200);
+  }, 1300);
+  $('#tearSlider').addEventListener('pointerdown', function(){ coach.classList.add('hide'); });
+
+  function tearOff(){
+    var s = sheets[idx]; rip(); buzz(25);
+    s.classList.add('falling'); void s.offsetWidth;
+    s.style.transform = 'translate(-28%, 120vh) rotate(-38deg) rotateX(45deg)';
+    tear.disable(); coach.classList.add('hide'); clearTimeout(demoTimer);
+    if(idx === 0) step(1);
+    setTimeout(function(){
+      s.remove(); idx++;
+      tear.reset();
+      writePage(sheets[idx]);
+    }, reduce?150:550);
+  }
+
+  /* ===== the pen writes ===== */
+  var token = 0;
+  function prep(path){ var L = path.getTotalLength(); path.style.strokeDasharray = L; path.style.strokeDashoffset = L; return L; }
+  var circle = $('#circlePath'), sign = $('#signPath'), stamp = $('#stamp');
+  var cL = prep(circle), sL = prep(sign);
+  function draw(path, L, ms){ return path.animate([{strokeDashoffset:L},{strokeDashoffset:0}],{duration:ms,easing:'ease-out',fill:'forwards'}).finished; }
+  function rel(el){ var r = el.getBoundingClientRect(), c = pad.getBoundingClientRect(); return {x:r.left-c.left, y:r.top-c.top, w:r.width, h:r.height}; }
+  function penTo(x0, x1, y, ms){
+    var fr = []; for(var i=0;i<=10;i++) fr.push({transform:'translate('+(x0+(x1-x0)*i/10)+'px,'+(y+(i%2?-3:2))+'px) rotate('+(i%2?-4:3)+'deg)'});
+    pen.animate(fr,{duration:ms,easing:'linear',fill:'forwards'});
+  }
+
+  function writePage(page){
+    var my = ++token, last = idx === 4;
+    dots(idx-1, idx-1);
+    lede.textContent = ['', 'Page 1: it can happen to anyone.', 'Page 2: what this insurance is.', 'Page 3: why doctors trust us.', 'Page 4: choosing your plan.'][idx];
+    tear.set('The pen is writing\u2026');
+    var wrapTop = $('#clipboard').getBoundingClientRect().top + window.scrollY - 24;
+    if(Math.abs(window.scrollY - wrapTop) > 40) window.scrollTo({top: wrapTop, behavior: reduce ? 'auto' : 'smooth'});
+    if(reduce || !Element.prototype.animate){ done(page, true); return; }
+    skipBtn.hidden = false; skipBtn.onclick = function(){ done(page, true); };
+    pen.style.opacity = 1;
+    var chain = Promise.resolve();
+    $$('.ink', page).forEach(function(line){
+      chain = chain.then(function(){
+        if(my !== token) return;
+        var b = rel(line), ms = Math.max(280, Math.min(640, b.w*1.35));
+        penTo(b.x, b.x+b.w, b.y+b.h*.72, ms);
+        return line.animate([{clipPath:'inset(0 100% 0 0)'},{clipPath:'inset(0 0% 0 0)'}],{duration:ms,easing:'linear',fill:'forwards'}).finished
+          .then(function(){ if(my !== token) return; return line.hasAttribute('data-circle') ? draw(circle, cL, 450) : wait(80); });
+      });
+    });
+    if(last){
+      chain = chain.then(function(){ if(my !== token) return; var b = rel(sign); penTo(b.x, b.x+b.w, b.y+28, 500); return draw(sign, sL, 500); });
+    }
+    chain.then(function(){ if(my === token) done(page, false); }).catch(function(){ if(my === token) done(page, true); });
+  }
+
+  function done(page, instant){
+    token++;
+    var last = idx === 4;
+    if(instant){
+      $$('.ink', page).concat([pen, circle, sign]).forEach(function(el){ if(el.getAnimations) el.getAnimations().forEach(function(a){ a.cancel(); }); });
+      $$('.ink', page).forEach(function(l){ l.style.clipPath = 'none'; });
+      if(last){ circle.style.strokeDashoffset = 0; sign.style.strokeDashoffset = 0; }
+    }
+    pen.style.opacity = 0; skipBtn.hidden = true;
+    if(!last){
+      dots(idx-1, idx);
+      tear.set('Slide for page ' + (idx+1), 'Slide or press to open page ' + (idx+1));
+      tear.enable();
+      return;
+    }
+    dots(4, -1);
+    $('.sign small', page).style.opacity = 1;
+    $('#control').style.display = 'none';
+    setTimeout(function(){ stamp.classList.add('in'); }, reduce?0:200);
+    setTimeout(function(){ thud(); buzz([18,40,18]); pad.classList.add('shake'); }, reduce?0:500);
+    setTimeout(reveal, reduce?0:1000);
+  }
+
+  /* ===== Association Suraksha Scheme: slide to register ===== */
+  var assn = '';
+  try{ assn = (new URLSearchParams(location.search).get('assn') || '').trim().slice(0,60); }catch(e){}
+  var scheme = (assn ? assn + ' ' : 'Association ') + 'Suraksha Scheme';
+  $$('[data-scheme]').forEach(function(el){ el.textContent = scheme; });
+  $$('[data-member]').forEach(function(el){ el.textContent = assn ? 'as a member of ' + assn : 'as an association member'; });
+  var THANK_YOU_URL = 'https://v1.coveryou.in/profile/thank-you/';
+  var plans = $$('.plans button');
+  function pick(b){ plans.forEach(function(x){ var on = x === b; x.setAttribute('aria-checked', on ? 'true' : 'false'); x.tabIndex = on ? 0 : -1; }); }
+  plans.forEach(function(b, i){
+    b.addEventListener('click', function(){ pick(b); });
+    b.addEventListener('keydown', function(e){
+      var k = e.key, j = (k === 'ArrowRight' || k === 'ArrowDown') ? i+1 : (k === 'ArrowLeft' || k === 'ArrowUp') ? i-1 : null;
+      if(j === null) return; e.preventDefault();
+      var nb = plans[(j + plans.length) % plans.length]; pick(nb); nb.focus();
+    });
+  });
+  var cmp = Slider($('#cmpSlider'), { onComplete: function(){
+    buzz(20); cmp.set('Opening plans\u2026');
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: 'compare_plans_click' });
+    window.location.href = THANK_YOU_URL;
+    setTimeout(function(){ cmp.reset(); cmp.enable(); cmp.set('Slide to compare plans'); }, 2500);
+  }});
+  var reg = Slider($('#regSlider'), { onComplete: function(){
+    buzz(20); reg.set('Opening registration\u2026');
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: 'suraksha_register_click', association: assn });
+    window.location.href = THANK_YOU_URL;
+    setTimeout(function(){ reg.reset(); reg.enable(); reg.set('Slide to register'); }, 2500);
+  }});
+
+  function reveal(){
+    step(2);
+    lede.textContent = 'That\u2019s your prescription. Your plan options and scheme benefit are below.';
+    var after = $('#after'); after.classList.add('show');
+    setTimeout(function(){ after.scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block: 'center'}); }, 350);
+  }
+})();
+</script>
+</body>
+</html>
